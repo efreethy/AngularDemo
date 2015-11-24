@@ -6,7 +6,16 @@
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   </head>
   <body>
+    <div>
     Name: <input ng-model="name" type="text"/>
     Hello {{name}}
+    <div>
+
+    <div ng-init="customers=[{name: 'sally', city: 'New York'}, {name: 'bill', city: 'Atlanta'}, {name:'roger', city: 'San Francisco'}]">
+      <ul>
+        <li ng-repeat="cust in customers | filter:name | orderBy:'city'">
+          {{cust.name}} - {{cust.city | uppercase}}
+        </li>
+      </ul>
   </body>
 </html>
